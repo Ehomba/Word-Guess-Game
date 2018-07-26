@@ -1,0 +1,51 @@
+header{
+    border-color: grey;
+    border-width: 5px 10px 5px 10px;
+    border-style: ridge;
+    height: 200px;
+    width: 75%;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: fantasy;
+}
+body {
+    font-family: fantasy;
+}
+#title {
+    margin-top: 5px;
+    font-size: 50px;
+}
+.underscores {
+    border-color: grey;
+    border-width: 5px 10px 5px 10px;
+    border-style: ridge;
+    height: 75px;
+    width: 75%;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+.rightGuess {
+    border-color: grey;
+    border-width: 5px 10px 5px 10px;
+    border-style: ridge;
+    height: 75px;
+    width: 75%;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+.wrongGuess {
+    border-color: grey;
+    border-width: 5px 10px 5px 10px;
+    border-style: ridge;
+    height: 75px;
+    width: 75%;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+#under {
+    margin-top: 10px;
+}
