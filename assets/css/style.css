@@ -16,7 +16,7 @@ body {
     margin-top: 5px;
     font-size: 50px;
 }
-.underscores {
+#underscores {
     border-color: grey;
     border-width: 5px 10px 5px 10px;
     border-style: ridge;
@@ -26,7 +26,7 @@ body {
     margin: 0 auto;
     text-align: center;
 }
-.rightGuess {
+#rightGuess {
     border-color: grey;
     border-width: 5px 10px 5px 10px;
     border-style: ridge;
@@ -36,7 +36,27 @@ body {
     margin: 0 auto;
     text-align: center;
 }
-.wrongGuess {
+#wrongGuess {
+    border-color: grey;
+    border-width: 5px 10px 5px 10px;
+    border-style: ridge;
+    height: 75px;
+    width: 75%;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+#wins {
+    border-color: grey;
+    border-width: 5px 10px 5px 10px;
+    border-style: ridge;
+    height: 75px;
+    width: 75%;
+    font-size: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+#loses {
     border-color: grey;
     border-width: 5px 10px 5px 10px;
     border-style: ridge;

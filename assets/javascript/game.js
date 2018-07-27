@@ -7,44 +7,91 @@ var rightWord = [];
 var wrongWord = [];
 var chosenWord = word[randNum];
 var underScore = [];
+var guessLeft = 15;
+var wins = 0;
+var loses = 0;
 // Dom Mainpulation
- var docUnderscore = document.getElementsByClassName("underscores")
- var docRightguess = document.getElementsByClassName("rightGuess")
- var docWrongguess = document.getElementsByClassName("wrongGuess")
+ var docUnderscore = document.getElementById("underscores")
+ var docRightguess = document.getElementById("rightGuess")
+ var docWrongguess = document.getElementById("wrongGuess")
+ var docWins = document.getElementById("wins")
+ var docLoses = document.getElementById("loses")
  
 //test and answer for grading
 console.log(chosenWord);
 //create underscores that match word length
 var genUnderscores = () => {
+    console.log('underscores being called');
     for(var i = 0; i < chosenWord.length; i++){
         underScore.push("_");
     }
     return underScore;
 }
-console.log(genUnderscores());
-//get user guess
+
+genUnderscores();
+
+docUnderscore.innerHTML = underScore;
+
+function reset() {
+    guessLeft = 15;
+    underScore = [];
+    wrongWord = [];
+    chosenWord = word[Math.floor(Math.random() * word.length)];
+    genUnderscores();
+    docUnderscore.innerHTML = underScore;
+    docWrongguess.innerHTML = wrongWord;
+}
+
+function updateUnderScores(val) {
+    var userGuess = val;
+    var chosenWordSplit = chosenWord.split('');
+    console.log(chosenWordSplit);
+    for( var i = 0; i < chosenWord.length; i++ ){
+        if ( userGuess === chosenWordSplit[i] ) {
+            underScore[i] = userGuess;
+        }
+    }
+
+    docUnderscore.innerHTML = underScore;
+
+}
+
+
+
 document.onkeyup = function(event) {
 
     var guess = event.key;
+
     var userGuess = guess.toLowerCase();
 
 //check guess
 //if right
-if(chosenWord.indexOf(userGuess) > -1){
-    rightWord.push(userGuess);
+if(chosenWord.includes(userGuess)){
+    console.log('guess is correct');
+    // rightWord.push(userGuess);
 //replace underscore with correct letter
-    underScore[chosenWord.indexOf(userGuess)] = userGuess;
-    docUnderscore[0].innerHTML = underScore.join(" ");
-    docRightguess[0].innerHTML = rightWord;
-    // checks to seeuserscore matches guesses
-    if (underScore.join('') == chosenWord) {
-        alert("You Win");
+    updateUnderScores(userGuess);
+    if (!underScore.includes('_')) {
+        alert('You win');
+        reset();
+        wins++
+        docWins.innerHTML = wins;
     }
 } 
 //if wrong push to wrong array
 else {
-    wrongWord.push(userGuess)
-    docWrongguess[0].innerHTML = wrongWord;
-}
-}
+    if ( guessLeft === 0) {
+        alert('you Lose!');
+        reset();
+        loses++
+    } else {
 
+        wrongWord.push(userGuess)
+        guessLeft--
+        docWrongguess.innerHTML = wrongWord;
+        docLoses.innerHTML = loses
+
+    }
+   
+}
+}
