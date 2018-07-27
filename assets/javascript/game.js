@@ -40,6 +40,7 @@ function reset() {
     genUnderscores();
     docUnderscore.innerHTML = underScore;
     docWrongguess.innerHTML = wrongWord;
+    console.log(chosenWord);
 }
 
 function updateUnderScores(val) {
